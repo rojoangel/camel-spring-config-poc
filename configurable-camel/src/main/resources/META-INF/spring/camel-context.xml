@@ -24,6 +24,17 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
+  <bean id="bridgePropertyPlaceholder" class="org.apache.camel.spring.spi.BridgePropertyPlaceholderConfigurer">
+    <!-- this needs to be 'true' otherwise tries to resolve '${}' placeholders in the 'toD' uri and yields error -->
+    <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    <property name="locations">
+      <list>
+        <value>classpath:configurable-camel.properties</value>
+      </list>
+    </property>
+
+  </bean>
+
   <camelContext xmlns="http://camel.apache.org/schema/spring">
 
     <restConfiguration component="jetty" enableCORS="true" scheme="http" host="0.0.0.0" port="8080">
@@ -34,7 +45,7 @@
       <get uri="health">
         <route>
           <setBody>
-            <constant>{ "health": "I Feel Good!" }</constant>
+            <simple>${properties:health.response}</simple>
           </setBody>
         </route>
       </get>
