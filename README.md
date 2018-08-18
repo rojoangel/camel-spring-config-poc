@@ -38,4 +38,4 @@ and
 
 To refresh the application properties use
 
-    curl localhost:8080/actuator/refresh -d {} -H "Content-Type: application/json"
+    curl localhost:9999/actuator/refresh -d {} -H "Content-Type: application/json"
