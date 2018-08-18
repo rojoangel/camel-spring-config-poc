@@ -29,12 +29,12 @@ To start the application with the `prod` profile active use
     make run-prod
 
 The application
-- will respond to GET requests to http://localhost:8080/camel/health
-- will refresh its properties via POST to http://localhost:8080/actuator/refresh
+- will respond to GET requests to http://localhost:8080/health
+- will refresh its properties via POST to http://localhost:9999/actuator/refresh
 
 and
-- responds to GET requests to http://localhost:8080/actuator/health
-- responds to GET requests to http://localhost:8080/actuator/env
+- responds to GET requests to http://localhost:9999/actuator/health
+- responds to GET requests to http://localhost:9999/actuator/env
 
 To refresh the application properties use
 
