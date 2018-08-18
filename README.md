@@ -40,7 +40,8 @@ To refresh the application properties use
 
     curl localhost:9999/actuator/refresh -d {} -H "Content-Type: application/json"
 
-The application exposes via HTTP all the management (actuator/*) endpoints.
+The application exposes via HTTP all the management (actuator/*) endpoints - they can be discovered at http://localhost:9999/actuator/
+
 Here the full list can be found: https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
 
 E.g. to change un runtime the logging level use
