@@ -1,0 +1,32 @@
+Apache Camel & Spring Cloud Config Proof of Concept
+===================================================
+
+The project consists in two modules:
+
+## config-service
+It is an spring-boot application serving properties using spring cloud config server
+
+To start the service use
+
+    make run
+
+The service 
+- will be available at port 8888
+- will serve properties from the *.properties files in the root folder
+- can be tested in the following urls 
+  - http://localhost:8888/configurable-camel/default
+  - http://localhost:8888/configurable-camel/prod
+    
+## configurable-camel
+It is an apache camel spring boot application consuming acting as client of the config-service 
+
+To start the application with the `default` profile active use
+
+    make run
+
+To start the application with the `prod` profile active use
+
+    make run-prod
+
+The application
+- will respond to GET requests to http://localhost:8080/camel/health
