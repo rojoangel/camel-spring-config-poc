@@ -30,3 +30,8 @@ To start the application with the `prod` profile active use
 
 The application
 - will respond to GET requests to http://localhost:8080/camel/health
+- will refresh its properties via POST to http://localhost:8080/actuator/refresh
+
+To refresh the application properties use
+
+    curl localhost:8080/actuator/refresh -d {} -H "Content-Type: application/json"
