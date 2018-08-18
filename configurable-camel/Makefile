@@ -1,4 +1,4 @@
 .PHONY: run
 
 run:
-	@ mvn camel:run -DskipTests
+	@ mvn spring-boot:run -DskipTests
