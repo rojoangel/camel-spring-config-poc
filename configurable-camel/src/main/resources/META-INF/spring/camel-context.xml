@@ -20,13 +20,19 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
 
-    <bean id="propertyWrapper" class="com.magento.payments.bean.PropertyWrapper">
-        <constructor-arg value="${health.response}" />
+    <bean id="propertyWrapper" class="com.magento.payments.bean.PropertyWrapper" scope="refresh">
+        <aop:scoped-proxy/>
+        <!-- injection of properties is not working.
+             It is suggested to use @Value or @ConfigurationProperties instead:
+             https://github.com/spring-cloud/spring-cloud-commons/issues/207 -->
+        <!-- constructor-arg value="${health.response}" / -->
     </bean>
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
