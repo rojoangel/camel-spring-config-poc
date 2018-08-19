@@ -24,6 +24,11 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
+
+    <bean id="propertyWrapper" class="com.magento.payments.bean.PropertyWrapper">
+        <constructor-arg value="${health.response}" />
+    </bean>
+
     <camelContext xmlns="http://camel.apache.org/schema/spring">
 
         <!-- restConfiguration component="jetty" enableCORS="true" scheme="http" host="0.0.0.0" port="8080">
@@ -31,10 +36,17 @@
         </restConfiguration -->
 
         <rest path="/" produces="application/json">
-            <get uri="health">
+            <get uri="health-property">
                 <route>
                     <setBody>
                         <simple>${properties:health.response}</simple>
+                    </setBody>
+                </route>
+            </get>
+            <get uri="health-bean">
+                <route>
+                    <setBody>
+                        <simple>${bean:propertyWrapper.getValue}</simple>
                     </setBody>
                 </route>
             </get>
