@@ -77,6 +77,9 @@
           <execution>
             <goals>
               <goal>repackage</goal>
+              <!-- generates build-info to be consumed by the /actuator/info management endpoint
+              https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html#production-ready-application-info-build -->
+              <goal>build-info</goal>
             </goals>
           </execution>
         </executions>

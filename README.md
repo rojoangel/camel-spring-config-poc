@@ -35,6 +35,7 @@ The application
 and
 - responds to GET requests to http://localhost:9999/actuator/health
 - responds to GET requests to http://localhost:9999/actuator/env
+- returns application information - **including version** - at http://localhost:9999/actuator/info
 
 To refresh the application properties use
 
