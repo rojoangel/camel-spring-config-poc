@@ -12,7 +12,7 @@ To start the service use
 
 The service 
 - will be available at port 8888
-- will serve properties from the `*.properties files in the https://github.com/rojoangel/camel-spring-config-poc github repo (this repo)
+- will serve properties from the `*.properties files in the https://github.com/rojoangel/camel-spring-config-poc github repo (although this PoC uses the same repo, think of it as a different repo from the one containing the applications code)
 - can be tested in the following urls 
   - [/configurable-camel/default](http://localhost:8888/configurable-camel/default)
   - [/configurable-camel/prod](http://localhost:8888/configurable-camel/prod)
